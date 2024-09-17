@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Run Local Command</title>
 </head>
 <body>
-  <div>
-    <button id="log-btn">Run Ls</button>
-    <button id="error-btn">Run Ls</button>
+  <div class="container">
+    <div>
+      <button id="log-btn" class="btn">Update Log</button>
+      <button id="error-btn" class="btn">Update Error Log</button>
+    </div>
+    <p id="log-output"></p>
   </div>
 
   <script src="command.js"></script>

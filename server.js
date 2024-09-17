@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/get-log', (req, res) => {
   // Command For run scrape-graha.sh
-  const command = '/home/farhan/graha-script/scrape-graha.sh';  
+  const command = '/home/farhan/graha-script/scrape-graha.sh';
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -20,7 +20,8 @@ app.get('/get-log', (req, res) => {
       return res.status(500).send(`stderr: ${stderr}`);
     }
     console.log(`stdout: ${stdout}`);
-    res.send(`Command output:\n${stdout}`);
+    // res.send(`Command output:\n${stdout}`);
+    res.send("success updating log, please refresh");
   });
 });
 

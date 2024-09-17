@@ -1,15 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     const logButton = document.getElementById('log-btn');
     const errorButton = document.getElementById('error-btn');
+    const logOutput = document.getElementById('log-output')
+
+    const showMessage= (msg) => {
+        logOutput.innerHTML = msg;
+        setTimeout(() => {
+            logOutput.innerHTML="";
+        }, 2000);
+    }
 
     logButton.addEventListener('click', () => {
         fetch('/get-log')
         .then(response => response.text())
         .then(data => {
-            console.log(data);
+            showMessage(data)
         })
         .catch(error => {
-            console.error(error);
+            showMessage("error updating log")
         });
     });
 
@@ -17,10 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('/get-error')
         .then(response => response.text())
         .then(data => {
-            console.log(data);
+            showMessage(data)
         })
         .catch(error => {
-            console.error(error);
+            showMessage("error updating log")
         });
     });
+
 })
